@@ -12,7 +12,7 @@
 
 	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/vendors.min.css}"/>
 	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/algaworks.min.css}"/>
-	<link rel="stylesheet" type="text/css" th:href="@{/layout/stylesheets/application.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/stylesheets/wine.css}"/>
 	
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,7 +30,7 @@
 
 	    <div class="navbar-header">
 	      <a class="navbar-brand  hidden-xs" href="#">
-	        <img alt="AlgaWorks" th:src="@{/layout/images/logo.png}"/>
+	        <img alt="AlgaWorks" th:src="@{/images/logo.png}"/>
 	      </a>
 
 	      <ul class="nav  navbar-nav">
@@ -91,16 +91,16 @@
 	    	<nav class="aw-menu  js-menu">
 	      		<ul class="aw-menu__list">
 	        		<li class="aw-menu__item">
-          			<a th:href="@{/produtos/novo}">
+          			<a th:href="@{/vinhos/novo}">
           				<i class="fa  fa-fw  fa-plus-circle"></i>
-          				<span>Novo produto</span>
+          				<span>Novo vinho</span>
           			</a>
 	        		</li>
 	        		
 	        		<li class="aw-menu__item">
-          			<a th:href="@{/produtos}">
+          			<a th:href="@{/vinhos}">
           				<i class="fa  fa-fw  fa-search"></i>
-          				<span>Consulta produto</span>
+          				<span>Listagem vinhos</span>
           			</a>
 	        		</li>
 	        		
@@ -140,6 +140,8 @@
 </div>
 <script th:src="@{/layout/javascripts/vendors.min.js}"></script>
 <script th:src="@{/layout/javascripts/algaworks.min.js}"></script>
+
+<th:block layout:fragment="javascript-extra"></th:block>
 
 </body>
 </html>

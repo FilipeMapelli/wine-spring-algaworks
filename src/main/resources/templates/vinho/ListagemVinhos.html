@@ -22,8 +22,8 @@
 			
 				<div class="col-xs-2">
 					<div class="aw-page-header-controls">
-						<a class="btn btn-primary" th:href="@{/produtos/novo}">
-							<i class="fa  fa-plus-circle"></i> <span class="hidden-xs  hidden-sm">Novo produto</span>
+						<a class="btn btn-primary" th:href="@{/vinhos/novo}">
+							<i class="fa  fa-plus-circle"></i> <span class="hidden-xs  hidden-sm">Novo vinho</span>
 						</a>
 					</div>
 				</div>
@@ -47,8 +47,8 @@
 				<tbody>
 					<tr th:each="vinho : ${vinhos}">
 						<td th:text="${vinho.codigo}"></td>
-						<td><a href="#" th:text="${vinho.nome}">Undurraga Wine of chile - Carmenére</a></td>
-						<td th:text="${vinho.tipo}">Tinto</td>
+						<td><a th:href="@{/vinhos/{codigo}(codigo=${vinho.codigo})}" th:text="${vinho.nome}">Undurraga Wine of chile - Carmenére</a></td>
+						<td th:text="${vinho.tipo.descricao}">Tinto</td>
 						<td th:text="${vinho.safra}">2013</td>
 						<td th:text="${vinho.volume}">750ml</td>
 						<td th:text="${vinho.valor}">R$55,00</td>
