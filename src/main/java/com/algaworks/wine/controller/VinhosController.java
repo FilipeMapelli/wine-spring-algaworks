@@ -16,6 +16,7 @@ import com.algaworks.wine.model.TipoVinho;
 import com.algaworks.wine.model.Vinho;
 import com.algaworks.wine.repository.Vinhos;
 import com.algaworks.wine.service.CadastroVinhoService;
+import com.algaworks.wine.storage.FotoStorage;
 
 @Controller
 @RequestMapping("/vinhos")
@@ -26,6 +27,9 @@ public class VinhosController {
 	
 	@Autowired
 	private CadastroVinhoService cadastroVinhoService;
+	
+	@Autowired
+	private FotoStorage fotoStorage;
 	
 	@RequestMapping
 	public String pesquisa(Model model) {
@@ -55,7 +59,7 @@ public class VinhosController {
 		ModelAndView mv = new ModelAndView("/vinho/VisualizacaoVinho");
 		
 		if(vinho.temFoto()){
-			vinho.setUrl("http://localhost:9444/s3/wine/"+ vinho.getFoto() +"?noAuth=true");
+			vinho.setUrl(fotoStorage.getUrl(vinho.getFoto()));
 		}
 		
 		mv.addObject("vinho", vinho);

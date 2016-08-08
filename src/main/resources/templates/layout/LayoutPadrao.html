@@ -23,6 +23,9 @@
 </head>
 <body>
 
+<input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+<input type="hidden" name="_csrf_header" th:value="${_csrf.headerName}"/>
+
 <div class="aw-layout-page">
 	
 	<nav class="navbar  navbar-fixed-top  navbar-default  js-sticky-reference" id="main-navbar">
@@ -43,43 +46,13 @@
 	    <ul class="nav navbar-nav  navbar-right">
 	    
 	      <li>
-	        <a href="#" class="js-search-modal-trigger-show"><i class="fa  fa-search"></i></a>
-	      </li>
-	      
-	      <li class="dropdown">
-	        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-	          <i class="fa  fa-envelope"></i> <span class="label  label-danger  aw-label-corner">48</span>
-	        </a>
-	                  
-	        <ul class="dropdown-menu">
-	          <li><a href="javascript:;">Item 1</a></li>
-	          <li><a href="javascript:;">Item 2</a></li>
-	        </ul>
-	      </li>
-	      
-	      <li class="dropdown">
-	        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-	          <i class="fa  fa-user"></i>
-	        </a>
-	        
-	        <ul class="dropdown-menu">
-	          <li>
-	            <div class="aw-logged-user">
-	              <img src="https://api.adorable.io/avatars/80/joaodascouves" 
-	                width="80" height="80" alt="João das Couves" class="aw-logged-user__picture" />
-	              <span class="aw-logged-user__name">João das Couves</span>
-	            </div>
-	          </li>
-	          <li role="separator" class="divider"></li>
-	          <li><a href="#">Meu perfil</a></li>
-	          <li><a href="#">Alterar senha</a></li>
-	          <li><a href="#">Pagamentos</a></li>
-	        </ul>
-	      </li>
-	      
+	      	<p class="navbar-text" th:text="${#authentication.name}"></p>
+		 </li>
+
 	      <li>
-	        <a href="#"><em class="fa  fa-sign-out"></em></a>
+	        <a th:href="@{/logout}"><em class="fa  fa-sign-out"></em></a>
 	      </li> 
+	      
 	    </ul>
 
 	  </div>
@@ -97,33 +70,13 @@
           			</a>
 	        		</li>
 	        		
-	        		<li class="aw-menu__item">
+	        		<li class="aw-menu__item" sec:authorize-url="/vinhos">
           			<a th:href="@{/vinhos}">
           				<i class="fa  fa-fw  fa-search"></i>
           				<span>Listagem vinhos</span>
           			</a>
 	        		</li>
 	        		
-	        		<li class="aw-menu__item">
-          			<a th:href="@{/403}">
-          				<i class="fa  fa-fw  fa-arrow-circle-o-right"></i>
-          				<span>403</span>
-          			</a>
-	        		</li>
-	        		
-	        		<li class="aw-menu__item">
-          			<a th:href="@{/404}">
-          				<i class="fa  fa-fw  fa-arrow-circle-o-right"></i>
-          				<span>404</span>
-          			</a>
-	        		</li>
-	        		
-	        		<li class="aw-menu__item">
-          			<a th:href="@{/500}">
-          				<i class="fa  fa-fw  fa-arrow-circle-o-right"></i>
-          				<span>500</span>
-          			</a>
-	        		</li>
 	
 	      	</ul>
 	    	</nav>
